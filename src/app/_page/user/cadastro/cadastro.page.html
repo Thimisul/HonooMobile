@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label for="exampleInputUsername1">Username</ion-label>
+      <ion-input type="text" name="username" placeholder="Nome" [(ngModel)]="model.username" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="exampleInputEmail1">Email</ion-label>
+      <ion-input type="email" name="email" placeholder="Email" [(ngModel)]="model.email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="exampleInputPassword1">Senha</ion-label>
+      <ion-input type="password" name="password" placeholder="Password" [(ngModel)]="model.password" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="date">Data de Aniversario</ion-label>
+      <ion-input type="date" name="birthdate" placeholder="birthdate" [(ngModel)]="model.birthdate" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+
+      <ion-radio-group>
+<ion-item>
+        <ion-label>Description</ion-label>
+      </ion-item>
+        <ion-item>
+          <ion-label>Masculino</ion-label>
+          <ion-radio value="model.sex"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Feminino</ion-label>
+          <ion-radio value="model.sex"></ion-radio>
+        </ion-item>
+
+      </ion-radio-group>
+
+    </ion-item>
+  </ion-list>
+  <ion-button type="submit" (click)="cadastro()">Salvar</ion-button>
+
+</ion-content>

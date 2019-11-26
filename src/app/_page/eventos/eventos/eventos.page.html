@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Eventos</ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+
+  <div *ngFor="let evento of modelEventos">
+    <ion-card *ngIf="evento.status != false" button (click)="cardClick()">
+        <ion-card-header>
+          <ion-card-subtitle>{{evento.eventType.name}}</ion-card-subtitle>
+          <ion-card-title>{{evento.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Awesome content
+        </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
