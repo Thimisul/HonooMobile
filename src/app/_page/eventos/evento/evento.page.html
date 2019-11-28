@@ -1,9 +1,66 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>evento</ion-title>
+    <ion-title>Evento: {{evento.title}}</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label color="primary">Descricao:</ion-label>
+      <ion-tab-button color="success" slot="end" (click)="participar()">
+        <ion-icon name="heart"></ion-icon>
+        <ion-label>Participar</ion-label>
+      </ion-tab-button>
+    </ion-item-divider>
+    <ion-item>
+        <ion-label>{{evento.description}}</ion-label>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label color="primary">Localizacao:</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-label>Cidade: {{evento.city}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Bairro: {{evento.neighborhood}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Rua: {{evento.street}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Criador:  {{evento.user.username}}</ion-label>
+    </ion-item>
+
+  </ion-item-group>
+
+  <!-- <ion-item-group>
+    <ion-item-divider>
+      <ion-label color="primary">Participantes</ion-label>
+    </ion-item-divider>
+    <div *ngFor="let part of evento.participant">
+    <ion-item>
+      <ion-label>{{part.username}}</ion-label>
+    </ion-item>
+    </div>
+  </ion-item-group> -->
+
+
+<ion-item-group>
+  <ion-item-divider>
+    <ion-label color="primary">Mensagens</ion-label>
+  </ion-item-divider>
+  <div *ngFor="let msg of mensagens">
+  <ion-item>
+    <ion-label>{{msg.message}}</ion-label>
+  </ion-item>
+  </div>
+</ion-item-group>
 
 </ion-content>

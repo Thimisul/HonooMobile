@@ -9,6 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { EventosPageModule } from './_page/eventos/eventos/eventos.module';
+
+
 
 
 @NgModule({
@@ -19,7 +22,8 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
     HttpClientJsonpModule,
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule],
+    AppRoutingModule,
+    EventosPageModule],
   providers: [
     StatusBar,
     SplashScreen,

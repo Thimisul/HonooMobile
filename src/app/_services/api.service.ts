@@ -16,7 +16,6 @@ export class ApiService {
   token = ''
 
   constructor(
-    private router: Router,
     private http: HttpClient) {  }
 
     urlBase = 'http://localhost:3000'
@@ -172,7 +171,7 @@ export class ApiService {
          catchError(this.handleError)
        );
    }
-   // GET /EVENT/SEARCH
+   // GET /EVENT/SEARCH search?start_date=2019-11-07T18%3A46%3A29.648Z&end_date=2019-11-07T18%3A46%3A29.648Z&event_type=1
    getEventSearch(startDate, endDate, eventType): Observable<EventResponse> {
     let httpOptions = {
       headers: new HttpHeaders({
@@ -182,9 +181,9 @@ export class ApiService {
     };
      return this.http
        .get<EventResponse>( this.urlBase  + '/event/search?' 
-                                          + startDate + '&' 
-                                          + endDate + '&'
-                                          + eventType, httpOptions)
+                                          + 'start_date=' + startDate + '&' 
+                                          + 'end_date=' + endDate + '&'
+                                          + 'event_type' + eventType, httpOptions)
        .pipe(
          catchError(this.handleError)
        );
@@ -200,7 +199,7 @@ export class ApiService {
       })
     };
     return this.http
-      .post<ParticipantResponse>( this.urlBase + '/participant/', data, this.httpOptions)
+      .post<ParticipantResponse>( this.urlBase + '/participant/', data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
@@ -245,7 +244,7 @@ export class ApiService {
       })
     };
     return this.http
-      .post<MensagemResponse>( this.urlBase + '/mensagem/', data, this.httpOptions)
+      .post<MensagemResponse>( this.urlBase + '/mensagem/', data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
@@ -292,7 +291,7 @@ export class ApiService {
          catchError(this.handleError)
        );
    }
-   // GET /MENSAGEM/EVENTO/{EVENTOID}
+   // GET /TIPOEVENTO
   getTipoEventos(): Observable<TipoEventoResponse> {
     let httpOptions = {
       headers: new HttpHeaders({

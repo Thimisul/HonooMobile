@@ -2,19 +2,19 @@ import { DatePipe } from '@angular/common';
 
 export interface ParticipantResponse {
     
-    participant: {
-        userId: bigint,
-        eventoId: bigint,
-      }
+
+        userId: string,
+        eventoId: string,
+      
       
 }
 
 export interface ParticipantIdResponse {
     
-    participant: {
-        id: bigint,
-        userId: bigint,
-        eventoId: bigint,
+    
+        id: string,
+        userId: string,
+        eventoId: string,
         registrationDate: DatePipe
-      }
+    
 }

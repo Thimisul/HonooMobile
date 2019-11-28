@@ -1,9 +1,11 @@
 import { DatePipe } from '@angular/common';
 
+
+
 export interface EventResponse {
     participant: [
         {
-            id: bigint
+            id: string
             username: string
             registrationDate: DatePipe
         }

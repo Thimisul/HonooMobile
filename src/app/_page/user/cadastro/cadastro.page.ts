@@ -18,7 +18,8 @@ export class CadastroPage implements OnInit {
   }
 
   cadastro() {
-    this.model.action = 'cadastro';
+    //this.model.action = 'cadastro';
+    console.log(this.model)
     this.apiService.addUser(this.model).subscribe(response => {
       if (response.id != null) {
         console.log(response)
