@@ -1,51 +1,58 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>Eventos</ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="addEvento()">
+          <ion-icon slot="end" name="add"></ion-icon>
+          Novo Evento
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
-  <ion-list>
-    <ion-item>
-      <ion-label position="inline">Data Inicial</ion-label>
-      <ion-datetime [(ngModel)]="start_date" displayFormat="D MMM YYYY HH:mm">Data Inicio:</ion-datetime>
-      </ion-item>
-      <ion-item>
-      <ion-label position="inline">Data Final</ion-label>
-      <ion-datetime [(ngModel)]="end_date" displayFormat="D MMM YYYY HH:mm">Data Inicio:</ion-datetime>
-    </ion-item>
-    <ion-item>
-    
-      <ion-item>
-        <ion-label>Tipo:</ion-label>
-        <ion-select interface="popover" [(ngModel)]="event_type" placeholder="Selecione">
-          <ion-select-option *ngFor="let tipoEvento of tipoEventos" [value]="tipoEvento.id">{{tipoEvento.name}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item slot="end">
-          <ion-tab-button slot="end" (click)="pesquisar()">
-              <ion-icon name="search"></ion-icon>
-              <ion-label>Pesquisar</ion-label>
-            </ion-tab-button>
-      </ion-item>
-      
-    </ion-item>
-  </ion-list>
-  
-
 </ion-header>
 
 <ion-content>
 
+  <ion-list>
+    <ion-item >
+      <ion-label position="inline">Data Inicial</ion-label>
+      <ion-datetime [(ngModel)]="start_date" displayFormat="D MMM YYYY HH:mm">Data Inicio:</ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="inline">Data Final</ion-label>
+      <ion-datetime [(ngModel)]="end_date" displayFormat="D MMM YYYY HH:mm">Data Inicio:</ion-datetime>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-item>
+    <ion-label>Tipo:</ion-label>
+    <ion-select interface="popover" [(ngModel)]="event_type" placeholder="Selecione">
+      <ion-select-option *ngFor="let tipoEvento of tipoEventos" [value]="tipoEvento.id">{{tipoEvento.name}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item> -->
+  
+  <ion-button color="tertiary" size="large" expand="block" fill="outline" (click)="pesquisar()">
+    <ion-label>Pesquisar</ion-label>
+    <ion-icon slot="start" name="search"></ion-icon>
+  </ion-button>
+
   <div *ngFor="let evento of modelEventos">
     <div [ngClass]="{redClass: !evento.status}">
       <ion-card button (click)="openEvento(evento.id)">
-        <ion-card-header>
+        <ion-card-header class="ion-text-center">
           <ion-card-subtitle>{{evento.eventType.name}}</ion-card-subtitle>
           <ion-card-title>{{evento.title}}</ion-card-title>
         </ion-card-header>
-        <ion-card-content>
-          {{evento.id}}
+        <ion-card-content class="ion-text-center">
+          {{evento.description}}
+         <br>
+          <ion-datetime readonly="true" min="2019" max="2025"
+          [dayShortNames]="customDayShortNames" displayFormat="D MMM YYYY HH:mm"
+          monthShortNames="jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez" [(ngModel)]="evento.startDate">
+        </ion-datetime>
         </ion-card-content>
+        
       </ion-card>
     </div>
   </div>
-  
+
 </ion-content>

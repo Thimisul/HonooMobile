@@ -5,25 +5,30 @@
 </ion-header>
 
 <ion-content>
-  
-  <ion-thumbnail>
-    <img class="ion-align-self-center" src="../../../../assets/shapes.svg" />
-  </ion-thumbnail>
-    <ion-item>
-      <ion-label position="floating">Email do Usuario</ion-label>
-      <ion-input [(ngModel)]="model.email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Senha</ion-label>
-      <ion-input [(ngModel)]="model.password" type="password"></ion-input>
-    </ion-item>
-    <ion-button  size="large" expand="block" fill="outline" (click)="login()">
-      <ion-icon slot="start" name="lock"></ion-icon>
-      <ion-label> Login </ion-label>
-    </ion-button>
-    <ion-button color="tertiary" size="large" expand="block" fill="outline" [routerLink]="['/cadastro']">
-      <ion-label>Registrar</ion-label>
-      <ion-icon slot="start" name="contact"></ion-icon>
-    </ion-button>
+
+
+  <!-- <ion-row>
+     <ion-col  class="align-items-center" size="6" offset="3"> -->
+        <img width="40%" src="../../../../assets/honoo-illust20.png" />
+      <ion-list>     
+        <ion-item>
+          <ion-label position="floating">Email do Usuario</ion-label>
+          <ion-input [(ngModel)]="model.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input [(ngModel)]="model.password" type="password"></ion-input>
+        </ion-item>
+        <ion-button size="large" expand="block" fill="outline" (click)="login()">
+          <ion-icon slot="start" name="lock"></ion-icon>
+          <ion-label> Login </ion-label>
+        </ion-button>
+        <ion-button color="tertiary" size="large" expand="block" fill="outline" [routerLink]="['/cadastro']">
+          <ion-label>Registrar</ion-label>
+          <ion-icon slot="start" name="contact"></ion-icon>
+        </ion-button>
+      </ion-list>
+    <!-- </ion-col>
+  </ion-row> -->
 
 </ion-content>

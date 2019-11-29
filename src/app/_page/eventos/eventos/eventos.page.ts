@@ -54,10 +54,21 @@ export class EventosPage implements OnInit {
   async openEvento(id){
     const pagina = await this.modal.create({
       component: EventoPage,
-      componentProps: {id: id}
+      componentProps: {id: id, tipoEventos: this.tipoEventos}
     })
     await pagina.present();
 
+    const {data} = await pagina.onDidDismiss();
+    console.log(data)
+  }
+
+  async addEvento(){
+
+    const pagina = await this.modal.create({
+      component: EventoPage,
+      componentProps: {id: 0, tipoEventos: this.tipoEventos}
+    })
+    await pagina.present();
     const {data} = await pagina.onDidDismiss();
     console.log(data)
   }

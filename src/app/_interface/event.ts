@@ -3,6 +3,7 @@ import { DatePipe } from '@angular/common';
 
 
 export interface EventResponse {
+    
     participant: [
         {
             id: string
@@ -14,10 +15,10 @@ export interface EventResponse {
     city: string,
     street: string,
     description: string,
-    id: bigint
+    id: string
     neighborhood: string,
     eventType: {
-        id: bigint,
+        id: string,
         name: string,
 
     },
@@ -25,11 +26,12 @@ export interface EventResponse {
     user: {
         birthdate: DatePipe,
         sex: string,
-        id: bigint,
+        id: string,
         email: string,
         username: string
     },
     starDate: DatePipe,
     referencePoint: string,
     status: boolean
+
 }

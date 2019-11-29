@@ -13,5 +13,6 @@ export interface UserResponse {
 export interface LoginResponse {
     token: string;
     status: string;
-    user : { id: string}
+    user : { id: string, username: string;}
+    
 }

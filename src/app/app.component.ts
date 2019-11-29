@@ -17,6 +17,8 @@ export class AppComponent {
     user : { id: string}
 }
 
+public tetando: string
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

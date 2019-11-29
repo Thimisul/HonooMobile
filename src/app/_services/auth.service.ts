@@ -52,6 +52,7 @@ export class AuthService {
     // After login save token and other values(if any) in localStorage
   setUser(resp: LoginResponse) {
     localStorage.setItem('user_id', resp.user.id);
+    localStorage.setItem('username', resp.user.username);
     localStorage.setItem('token', resp.token);
     this.router.navigate(['tabs/index'])
   }

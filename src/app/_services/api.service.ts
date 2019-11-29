@@ -124,7 +124,7 @@ export class ApiService {
       })
     };
     return this.http
-      .post<EventResponse>( this.urlBase + '/event/', data, this.httpOptions)
+      .post<EventResponse>( this.urlBase + '/event/', data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
