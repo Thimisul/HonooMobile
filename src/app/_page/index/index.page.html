@@ -1,13 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>index</ion-title>
+  <ion-toolbar color="darkprimary">
+    <ion-title>Index</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
 
-  <ion-title>Lista Meus Eventos Criados:</ion-title>
+  <ion-item>
+    <ion-label>Meus Eventos Criados: </ion-label>
+  </ion-item>
   <div *ngFor="let evento of eventsModel">
     <div [ngClass]="{redClass: !evento.status}">
       <ion-card *ngIf="evento.user.id == userId" button (click)="openEvento(evento.id)">
@@ -27,7 +29,9 @@
     </div>
   </div>
 
-  <ion-title>Lista dos Eventos que participo: </ion-title>
+  <ion-item>
+    <ion-label>Eventos que Participo: </ion-label>
+  </ion-item>
   <div *ngFor="let evento of eventsModel">
     <div *ngFor="let part of evento.participants" [ngClass]="{redClass: !evento.status}">
       <ion-card *ngIf="part.id == userId" button (click)="openEvento(evento.id)">

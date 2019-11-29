@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/_services/api.service';
 import { ModalController } from '@ionic/angular';
 import { EventoPage } from '../evento/evento.page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eventos',
@@ -18,7 +19,8 @@ export class EventosPage implements OnInit {
   event_type: string
 
   constructor(public Apiservice: ApiService,
-              public modal: ModalController) { }
+              public modal: ModalController,
+              public router: Router) { }
 
   ngOnInit() {
     this.getTipoEventos()
@@ -70,7 +72,9 @@ export class EventosPage implements OnInit {
     })
     await pagina.present();
     const {data} = await pagina.onDidDismiss();
-    console.log(data)
+    if(data.retorno == true){
+      this.router.navigate(['tabs/index'])
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Cadastro Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,28 +23,21 @@
     </ion-item>
     <ion-item>
       <ion-label for="date">Data de Aniversario</ion-label>
-      <ion-datetime  displayFormat="D MMM YYYY" type="date" name="birthdate" placeholder="birthdate" [(ngModel)]="model.birthdate" required>
-       </ion-datetime>
+      <ion-datetime displayFormat="D MMM YYYY" type="date" name="birthdate" placeholder="birthdate"
+        [(ngModel)]="model.birthdate" required>
+      </ion-datetime>
     </ion-item>
-    <ion-item>
-
-      <ion-radio-group>
-<ion-item>
-        <ion-label>Description</ion-label>
+    <ion-radio-group [(ngModel)]="model.sex">
+      <ion-list-header>Sexo: </ion-list-header>
+      <ion-item>
+        <ion-label>Msculino</ion-label>
+        <ion-radio value="M"></ion-radio>
       </ion-item>
-        <ion-item>
-          <ion-label>Masculino</ion-label>
-          <ion-radio value="model.sex"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Feminino</ion-label>
-          <ion-radio value="model.sex"></ion-radio>
-        </ion-item>
-
-      </ion-radio-group>
-
-    </ion-item>
+      <ion-item>
+        <ion-label>Feminino</ion-label>
+        <ion-radio value="F"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
   </ion-list>
   <ion-button type="submit" (click)="cadastro()">Salvar</ion-button>
 

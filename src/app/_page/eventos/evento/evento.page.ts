@@ -37,6 +37,8 @@ export class EventoPage implements OnInit {
     this.getEvento();
     this.getMensagens();
     }else{
+      this.evento.id = 0
+      this.evento.eventoId = '1'
       this.isOwner = true
       this.evento.ownerId = localStorage.getItem("user_id")
       console.log(this.isOwner)
@@ -124,10 +126,15 @@ export class EventoPage implements OnInit {
   }
 
   addEvento(){
+    this.evento.eventTypeId = "1"
+
+    console.log(this.evento)
     this.apiService.addEvent(this.evento).subscribe(response => {
       console.log(response)
         alert("Evento Criado")
-        this.router.navigate(['tabs/index']);
+        this.modal.dismiss({
+          retorno: true
+        })
    }, error => {
      console.error(error);
     });

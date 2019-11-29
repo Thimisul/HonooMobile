@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar color="dark">
-    <ion-title *ngIf="!isOwner" slot="start">Evento</ion-title>
-    <ion-title *ngIf="isOwner" slot="start">Esse Evento e seu!</ion-title>
-    <ion-tab-button slot="end" (click)="close()">
+    <ion-title slot="start">Evento</ion-title>
+   
+    <ion-button color="dark" slot="end" (click)="close()">
       <ion-icon name="close"></ion-icon>
-    </ion-tab-button>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
   <ion-list>
-    <ion-item >
+    <ion-item *ngIf="id != 0">
       <ion-label position="floating">ID: </ion-label>
       <ion-input readonly="true" [(ngModel)]="evento.id"></ion-input>
     </ion-item>
@@ -45,7 +45,7 @@
     </ion-item>
     <ion-item>
       <ion-label>Cidade: </ion-label>
-      <ion-input [readonly]="!isOwner" [(ngModel)]="evento.cidade"></ion-input>
+      <ion-input [readonly]="!isOwner" [(ngModel)]="evento.city"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Bairro: </ion-label>
@@ -66,7 +66,7 @@
 
   </ion-list>
 
-  <ion-button *ngIf="isOwner" color="success" expand="block" (click)="addEvento()">
+  <ion-button *ngIf="isOwner" color="success" fill="outline" expand="block" (click)="addEvento()">
     <ion-label>Salvar</ion-label>
   </ion-button>
 
@@ -82,7 +82,7 @@
   </ion-item-group>
 
 
-  <ion-button *ngIf="!isParticipant" size="large" expand="block" fill="outline" (click)="participar()">
+  <ion-button *ngIf="!isParticipant && id > 0" size="large" expand="block" fill="outline" (click)="participar()">
     <ion-icon slot="start" name="send"></ion-icon>
     <ion-label> Participar </ion-label>
   </ion-button>

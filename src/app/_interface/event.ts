@@ -1,5 +1,18 @@
 import { DatePipe } from '@angular/common';
 
+export interface addEventoResponse{
+    startDate: DatePipe,
+    endDate: DatePipe,
+    title: string,
+    street: string,
+  neighborhood: string,
+  city: string,
+  referencePoint: string,
+  description: string,
+  eventTypeId: string,
+  ownerId: string,
+  status: boolean
+}
 
 
 export interface EventResponse {
@@ -33,5 +46,8 @@ export interface EventResponse {
     starDate: DatePipe,
     referencePoint: string,
     status: boolean
+    eventTypeId: string
 
 }
+
+

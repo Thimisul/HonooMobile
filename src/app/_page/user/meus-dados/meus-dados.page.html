@@ -1,6 +1,12 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title>Meus Dados</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="end" name="lock"></ion-icon>
+        Logout
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -9,11 +15,11 @@
   <ion-list>
     <ion-item>
       <ion-label for="exampleInputUsername1">Username</ion-label>
-      <ion-input  type="text" name="username" placeholder="Nome" [(ngModel)]="model.username" required></ion-input>
+      <ion-input type="text" name="username" placeholder="Nome" [(ngModel)]="model.username" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label for="exampleInputEmail1">Email</ion-label>
-      <ion-input  type="email" name="email" placeholder="Email" [(ngModel)]="model.email" required></ion-input>
+      <ion-input type="email" name="email" placeholder="Email" [(ngModel)]="model.email" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label for="exampleInputPassword1">Senha</ion-label>
@@ -22,28 +28,21 @@
     </ion-item>
     <ion-item>
       <ion-label for="date">Data de Aniversario</ion-label>
-      <ion-input type="date" name="birthdate" placeholder="birthdate" [(ngModel)]="model.birthdate" required>
-      </ion-input>
+      <ion-datetime displayFormat="D MMM YYYY" type="date" name="birthdate" placeholder="birthdate"
+        [(ngModel)]="model.birthdate" required>
+      </ion-datetime>
     </ion-item>
-    <ion-item>
-
-      <ion-radio-group>
-<ion-item>
-        <ion-label>Description</ion-label>
+    <ion-radio-group [(ngModel)]="model.sex">
+      <ion-list-header>Sexo: </ion-list-header>
+      <ion-item>
+        <ion-label>Msculino</ion-label>
+        <ion-radio value="M"></ion-radio>
       </ion-item>
-        <ion-item>
-          <ion-label>Masculino</ion-label>
-          <ion-radio  value="model.sex"></ion-radio>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Feminino</ion-label>
-          <ion-radio value="model.sex"></ion-radio>
-        </ion-item>
-
-      </ion-radio-group>
-
-    </ion-item>
+      <ion-item>
+        <ion-label>Feminino</ion-label>
+        <ion-radio value="F"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
   </ion-list>
   <ion-button (click)="updateUser()" type="submit">Salvar</ion-button>
   <ion-button (click)="deleteUser()"type="submit">Deletar</ion-button>

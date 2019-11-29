@@ -24,7 +24,7 @@ export class MeusDadosPage implements OnInit {
   getUser(){ 
     this.Apiservice.getUser().subscribe(response => {
         this.model = response
-        alert("Bem Vindo! " + response.username)
+        console.log(response)
         
     })
   }
@@ -46,5 +46,9 @@ export class MeusDadosPage implements OnInit {
       this.authService.logout();
       
     })
+  }
+
+  logout(){
+    this.authService.logout()
   }
 }
