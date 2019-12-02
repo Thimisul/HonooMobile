@@ -1,6 +1,10 @@
-<ion-header>
+<ion-header >
   <ion-toolbar color="dark">
-    <ion-title slot="start">Evento</ion-title>
+      <ion-button *ngIf="isOwner && id > 0" color="danger" slot="start" (click)="deletar()">
+          <ion-icon name="crash"></ion-icon>
+        </ion-button>
+
+    <ion-title>Evento</ion-title>
    
     <ion-button color="dark" slot="end" (click)="close()">
       <ion-icon name="close"></ion-icon>
@@ -66,8 +70,11 @@
 
   </ion-list>
 
-  <ion-button *ngIf="isOwner" color="success" fill="outline" expand="block" (click)="addEvento()">
+  <ion-button *ngIf="isOwner && id == 0 " color="success" fill="outline" expand="block" (click)="addEvento()">
     <ion-label>Salvar</ion-label>
+  </ion-button>
+  <ion-button *ngIf="isOwner && id > 0 && evento.status" color="success" fill="outline" expand="block" (click)="updateEvento()">
+    <ion-label>Atualizar evento</ion-label>
   </ion-button>
 
   <ion-item-group>
@@ -82,7 +89,7 @@
   </ion-item-group>
 
 
-  <ion-button *ngIf="!isParticipant && id > 0" size="large" expand="block" fill="outline" (click)="participar()">
+  <ion-button *ngIf="!isParticipant && id > 0 || evento.status" size="large" expand="block" fill="outline" (click)="participar()">
     <ion-icon slot="start" name="send"></ion-icon>
     <ion-label> Participar </ion-label>
   </ion-button>
@@ -97,8 +104,8 @@
     </ion-item>
   </ion-list>
 
-  <ion-item-group *ngIf="isParticipant">
-    <ion-item color="light">
+  <ion-item-group>
+    <ion-item *ngIf="isParticipant && evento.status" color="light">
       <ion-label position="floating">Digite uma mensagem</ion-label>
       <ion-input [(ngModel)]="msg.message" type="text"></ion-input>
 

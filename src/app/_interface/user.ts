@@ -3,7 +3,7 @@ import { DatePipe } from '@angular/common';
 export interface UserResponse {
     token: string;
     status: string;
-    birthdate: DatePipe;
+    birthdate: string;
     username: string;
     password: string;
     email: string;

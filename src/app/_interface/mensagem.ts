@@ -12,7 +12,7 @@ export interface MensagemEventoIdResponse {
         id: string,
         userId: string,
         username: string,
-        messageDate: DatePipe,
+        messageDate: string,
         message: string
     
 }

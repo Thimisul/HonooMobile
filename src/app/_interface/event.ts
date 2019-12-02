@@ -37,13 +37,13 @@ export interface EventResponse {
     },
     title: string,
     user: {
-        birthdate: DatePipe,
+        birthdate: string,
         sex: string,
         id: string,
         email: string,
         username: string
     },
-    starDate: DatePipe,
+    starDate: string,
     referencePoint: string,
     status: boolean
     eventTypeId: string

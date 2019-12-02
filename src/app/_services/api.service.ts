@@ -14,6 +14,9 @@ import { TipoEventoResponse } from '../_interface/tipo-evento';
 })
 export class ApiService {
   token = ''
+  auxStartDate= ''
+  auxEndDate = ''
+  auxEventType= ''
 
   constructor(
     private http: HttpClient) {  }
@@ -179,11 +182,20 @@ export class ApiService {
         'token': localStorage.getItem('token')
       })
     };
+    if(startDate != undefined){
+      this.auxStartDate = 'start_date=' + startDate
+    }
+    if(endDate != undefined){
+     this.auxEndDate = '&end_date=' + endDate
+    }
+    if(eventType != undefined){
+      this.auxEventType = '&event_type=' + eventType
+    }
      return this.http
        .get<EventResponse>( this.urlBase  + '/event/search?' 
-                                          + 'start_date=' + startDate + '&' 
-                                          + 'end_date=' + endDate + '&'
-                                          + 'event_type' + eventType, httpOptions)
+                                          +  this.auxStartDate
+                                          +  this.auxEndDate
+                                          +  this.auxEventType, httpOptions)
        .pipe(
          catchError(this.handleError)
        );

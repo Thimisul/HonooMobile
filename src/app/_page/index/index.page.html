@@ -33,9 +33,9 @@
     <ion-label>Eventos que Participo: </ion-label>
   </ion-item>
   <div *ngFor="let evento of eventsModel">
-    <div *ngFor="let part of evento.participants" [ngClass]="{redClass: !evento.status}">
+    <div *ngFor="let part of evento.participants" >
       <ion-card *ngIf="part.id == userId" button (click)="openEvento(evento.id)">
-        <ion-card-header>
+        <ion-card-header [ngClass]="{redClass: !evento.status}">
           <ion-card-subtitle>{{evento.eventType.name}}</ion-card-subtitle>
           <ion-card-title>{{evento.title}}</ion-card-title>
         </ion-card-header>

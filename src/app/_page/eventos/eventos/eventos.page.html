@@ -17,7 +17,7 @@
       <ion-label position="inline">Data Inicial</ion-label>
       <ion-datetime [(ngModel)]="start_date" displayFormat="D MMM YYYY HH:mm">Data Inicio:</ion-datetime>
     </ion-item>
-    <ion-item>
+    <ion-item *ngIf="start_date != undefinied">
       <ion-label position="inline">Data Final</ion-label>
       <ion-datetime [(ngModel)]="end_date" displayFormat="D MMM YYYY HH:mm">Data Inicio:</ion-datetime>
     </ion-item>
@@ -34,15 +34,16 @@
     <ion-label>Pesquisar</ion-label>
     <ion-icon slot="start" name="search"></ion-icon>
   </ion-button>
-
+<div *ngIf="modelEventos != []">
   <div *ngFor="let evento of modelEventos">
-    <div [ngClass]="{redClass: !evento.status}">
+    <div >
       <ion-card button (click)="openEvento(evento.id)">
         <ion-card-header class="ion-text-center">
           <ion-card-subtitle>{{evento.eventType.name}}</ion-card-subtitle>
           <ion-card-title>{{evento.title}}</ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-text-center">
+            <h1  [ngClass]="{redClass: !evento.status}" *ngIf="!evento.status"> CANCELADO! </h1>
           {{evento.description}}
          <br>
           <ion-datetime readonly="true" min="2019" max="2025"
@@ -54,5 +55,6 @@
       </ion-card>
     </div>
   </div>
+</div>
 
 </ion-content>

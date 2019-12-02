@@ -15,6 +15,6 @@ export interface ParticipantIdResponse {
         id: string,
         userId: string,
         eventoId: string,
-        registrationDate: DatePipe
+        registrationDate: string
     
 }

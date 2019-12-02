@@ -35,7 +35,7 @@ export class EventoPage implements OnInit {
   ngOnInit() {
     if(this.id > 0){
     this.getEvento();
-    this.getMensagens();
+
     }else{
       this.evento.id = 0
       this.evento.eventoId = '1'
@@ -60,6 +60,16 @@ export class EventoPage implements OnInit {
     })
   }
 
+  updateEvento(){
+    this.apiService.updateEvent(this.evento).subscribe(response => {
+      console.log(response)
+      alert(response.title + " Atualizado!" + JSON.stringify(response))
+      
+   }, error => {
+     console.error(error);
+    });
+  }
+
   getEvento(){
     this.apiService.getEvent(this.id).subscribe(response => {
       this.evento = response
@@ -69,6 +79,7 @@ export class EventoPage implements OnInit {
       this.evento.participant.forEach(part => {
         if(this.possivelParticipant.userId == part.id){
           this.isParticipant = true
+          this.getMensagens();
           console.log("Participante? " + this.isParticipant)
         }else{
           this.isParticipant = false
@@ -91,13 +102,12 @@ export class EventoPage implements OnInit {
       this.evento.participant.forEach(part => {
         if(part.userId == localStorage.getItem("user_id")){
             this.msg.participantId = part.id
-            console.log("PArticipantId adicionado = " + this.msg.participantId)
         }
       });
       console.log(this.msg)
     this.apiService.addMensagem(this.msg).subscribe(response => {
         console.log(response)
-        alert("MensagemAdicionada")
+        this.msg.message = ''
         this.getEvento()
         //this.router.navigate(['/login']);
       
@@ -117,7 +127,6 @@ export class EventoPage implements OnInit {
  
     this.apiService.addParticipant(this.possivelParticipant).subscribe(response => {
         console.log(response)
-        alert("Participando")
         this.getEvento()
       
    }, error => {
@@ -140,11 +149,11 @@ export class EventoPage implements OnInit {
     });
   }
   
-  // delete(){
-  //   this.apiService.deleteEvent(this.id)
-  //   this.modal.dismiss({
-  //     retorno: true
-  //   })
-  // }
+  delete(){
+    this.apiService.deleteEvent(this.id)
+    this.modal.dismiss({
+      retorno: true
+    })
+  }
 
 }
