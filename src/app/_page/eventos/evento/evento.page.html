@@ -1,7 +1,7 @@
 <ion-header >
   <ion-toolbar color="dark">
-      <ion-button *ngIf="isOwner && id > 0" color="danger" slot="start" (click)="deletar()">
-          <ion-icon name="crash"></ion-icon>
+      <ion-button *ngIf="isOwner && id > 0" color="danger" slot="start" (click)="deleteEvent()">
+          <ion-icon name="trash"></ion-icon>
         </ion-button>
 
     <ion-title>Evento</ion-title>
@@ -89,11 +89,12 @@
   </ion-item-group>
 
 
-  <ion-button *ngIf="!isParticipant && id > 0 || evento.status" size="large" expand="block" fill="outline" (click)="participar()">
+  <ion-button *ngIf="!isParticipant && id > 0 && evento.status" size="large" expand="block" fill="outline" (click)="participar()">
     <ion-icon slot="start" name="send"></ion-icon>
     <ion-label> Participar </ion-label>
   </ion-button>
 
+  <div>
   <ion-list *ngIf="isParticipant && mensagens !=null">
       <ion-item-divider>
           <ion-label color="primary">Mensagens</ion-label>
@@ -103,6 +104,7 @@
       <ion-input readonly="true" [(ngModel)]="msgg.message"></ion-input>
     </ion-item>
   </ion-list>
+</div>
 
   <ion-item-group>
     <ion-item *ngIf="isParticipant && evento.status" color="light">

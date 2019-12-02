@@ -61,7 +61,8 @@ export class EventosPage implements OnInit {
     await pagina.present();
 
     const {data} = await pagina.onDidDismiss();
-    console.log(data)
+    this.getEventos()
+
   }
 
   async addEvento(){
@@ -73,7 +74,8 @@ export class EventosPage implements OnInit {
     await pagina.present();
     const {data} = await pagina.onDidDismiss();
     if(data.retorno == true){
-      this.router.navigate(['tabs/index'])
+      this.getEventos()
+      this.router.navigateByUrl('tabs/index')
     }
   }
 

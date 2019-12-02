@@ -18,6 +18,7 @@
           <ion-card-title>{{evento.title}}</ion-card-title>
         </ion-card-header>
         <ion-card-content class="ion-text-center">
+            <h1  [ngClass]="{redClass: !evento.status}" *ngIf="!evento.status"> CANCELADO! </h1>
           {{evento.description}}
           <br>
           <ion-datetime readonly="true" min="2019" max="2025" [dayShortNames]="customDayShortNames"

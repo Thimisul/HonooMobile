@@ -42,6 +42,7 @@ export class IndexPage implements OnInit {
     await pagina.present();
 
     const {data} = await pagina.onDidDismiss();
+    this.getEventos()
     console.log(data)
   }
 

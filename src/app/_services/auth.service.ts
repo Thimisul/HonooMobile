@@ -14,7 +14,7 @@ export class AuthService {
     private router: Router,
     private http: HttpClient) { }
 
-    urlBase = 'http://localhost:3000'
+    urlBase = 'http://192.168.1.66:3000'
     // Http Options
   httpOptions = {
     headers: new HttpHeaders({

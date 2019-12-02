@@ -21,7 +21,7 @@ export class ApiService {
   constructor(
     private http: HttpClient) {  }
 
-    urlBase = 'http://localhost:3000'
+    urlBase = 'http://192.168.1.66:3000'
   
     // Http Options
   httpOptions = {
@@ -225,7 +225,7 @@ export class ApiService {
       })
     };
      return this.http
-       .get<ParticipantIdResponse>( this.urlBase + '/event/' + id , httpOptions)
+       .get<ParticipantIdResponse>( this.urlBase + '/participant/' + id , httpOptions)
        .pipe(
          catchError(this.handleError)
        );
